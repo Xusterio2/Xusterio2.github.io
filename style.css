@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #d1e7dd; /* Verde claro suave */
+}
+
+.container {
+    background-color: #fff; /* Blanco para simular la nieve */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(3, 5, 2, 4); /* Sombra añadida aquí */
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+    color: #c70039; /* Rojo oscuro para detalles festivos */
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ff5733; /* Naranja rojizo para un toque festivo */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c70039; /* Rojo oscuro al pasar el ratón */
+}
+
+/* Estilos para el modal */
+.modal-dialog {
+    max-width: 300px;
+}
+
+.modal-header, .modal-body {
+    text-align: center;
+    background-color: #f25f5c; /* Rojo coral para el modal */
+    color: #fff;
+}
+
+.modal-footer {
+    display: none;
+}

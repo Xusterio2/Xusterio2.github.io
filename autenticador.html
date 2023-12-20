@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fondo gris claro */
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #d9534f; /* Rojo navideño */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: white;
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f9f9f9; /* Blanco */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        .options-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #d9534f; /* Rojo navideño */
+        }
+
+        .options-dropdown {
+            position: absolute;
+            top: 10px;
+            right: 70px;
+            background-color: #fff; /* Blanco */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .options-dropdown img {
+            max-width: 100px; /* Ajusta el tamaño de tu logo */
+            margin-bottom: 10px;
+        }
+
+        .options-dropdown a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+
+        .options-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .logout-btn {
+            cursor: pointer;
+            color: #d9534f; /* Rojo navideño */
+        }
+
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: #ffffff; /* Blanco */
+        }
+
+        /* Estilos para el ícono de usuario */
+        .navbar-icon {
+            font-size: 28px;
+            color: #d9534f; /* Rojo navideño */
+            margin-right: 5px;
+        }
+
+        /* Estilos para el título principal */
+        h1 {
+            color: #d9534f; /* Rojo navideño */
+        }
+
+        /* Estilos para el fondo de las cartas */
+        .card {
+            margin-bottom: 20px;
+            background-color: #ffffff; /* Blanco */
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos específicos para cada carta */
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Alinea las cartas en el centro de la página */
+        .container-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>Tienda de Navidad</title>
+</head>
+<body>
+
+    <div class="sidebar" id="mySidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    
+        <!-- Opción 1 -->
+        <a href="#">
+            <strong>Ropa de Invierno</strong><br>
+        </a>
+    
+        <!-- Opción 2 -->
+        <a href="#">
+            <strong>Decoración Navideña</strong><br>
+        </a>
+    
+        <!-- Opción 3 -->
+        <a href="#">
+            <strong>Regalos Especiales</strong><br>
+        </a>
+    
+        <!-- Opción 4 -->
+        <a href="#">
+            <strong>Ofertas del Día</strong><br>
+        </a>
+    
+        <!-- Opción 5 -->
+        <a href="#">
+            <strong>Juguetes para Niños</strong><br>
+        </a>
+
+    </div>
+
+<div id="main">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Logo en la parte superior izquierda -->
+        <div class="container">
+            <span class="options-btn" onclick="openNav()">☰</span>
+            <a class="navbar-brand" href="#">
+                <img src="Image/banner/bannerv2.jpeg" alt="Bootstrap" width="900" height="150">
+            </a>
+        </div>
+
+        <!-- Botón de opciones en la esquina superior derecha -->
+        <div class="options-dropdown">
+            <img src="Image/banner/Logo.jpeg" alt="Tu Logo">
+            <a href="#" onclick="logout()">Cerrar sesión</a>
+            <a href="#">Sobre mí</a>
+            <button type="button" class="btn btn-link" onclick="irACambiarContrasena()">Cambiar Contraseña</button>
+            <script>
+                function irACambiarContrasena() {
+                    window.location.href = 'cambiar_contrasena.html';
+                }
+            </script>
+        </div>
+
+        <!-- Ícono de usuario y nombre -->
+        <div class="d-flex align-items-center ml-auto">
+            <div class="navbar-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="navbar-text">
+                Cespedes Tapia Walter
+            </div>
+            <!-- Botón de cerrar sesión -->
+            <div class="options-btn ml-2" onclick="toggleOptions()">⚙️</div>
+        </div>
+    </nav>
+
+    <!-- Contenido de la página aquí -->
+    <div class="container mt-3">
+        <h1>Tienda de Navidad</h1>
+        <!-- Puedes agregar más contenido según tus necesidades -->
+
+        <!-- Sección de cartas -->
+        <div class="row container-cards">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Image/ImagenesNavideñas/AdorñoNavideño.jpeg" class="card-img-top" alt="Adorno Navideño">
+                    <div class="card-body">
+                        <h5 class="card-title">Adorno Navideño</h5>
+                        <p class="card-text">Decora tu espacio con este hermoso adorno navideño.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Image/ImagenesNavideñas/ArbolDeNavidad.jpeg" class="card-img-top" alt="Árbol de Navidad">
+                    <div class="card-body">
+                        <h5 class="card-title">Árbol de Navidad</h5>
+                        <p class="card-text">Celebra la temporada con un elegante árbol de Navidad.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Image/ImagenesNavideñas/RegalosNavideños.jpeg" class="card-img-top" alt="Regalos Navideños">
+                    <div class="card-body">
+                        <h5 class="card-title">Regalos Navideños</h5>
+                        <p class="card-text">Descubre ideas de regalos perfectos para estas fiestas.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Image/ImagenesNavideñas/LucesDeNavidad.jpeg" class="card-img-top" alt="Luces Navideñas">
+                    <div class="card-body">
+                        <h5 class="card-title">Luces Navideñas</h5>
+                        <p class="card-text">Ilumina tu hogar con hermosas luces navideñas.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Image/ImagenesNavideñas/muñecoDeNieve.jpeg" class="card-img-top" alt="Muñeco de Nieve">
+                    <div class="card-body">
+                        <h5 class="card-title">Muñeco de Nieve</h5>
+                        <p class="card-text">Crea un muñeco de nieve divertido con tu familia.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+
+        function toggleOptions() {
+            const optionsDropdown = document.querySelector('.options-dropdown');
+            optionsDropdown.style.display = optionsDropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function logout() {
+            // Redirigir a la página de inicio (index.html)
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

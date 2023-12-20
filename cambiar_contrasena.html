@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <title>Cambiar Contraseña</title>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Cambiar Contraseña</h2>
+    <form>
+        <div class="form-group">
+            <label for="nueva_contrasena">Nueva Contraseña:</label>
+            <input type="password" class="form-control" id="nueva_contrasena" placeholder="Ingrese su nueva contraseña">
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="cambiarContrasena()">Cambiar Contraseña</button>
+    </form>
+</div>
+
+<script>
+    function cambiarContrasena() {
+        // Obtener la nueva contraseña ingresada por el usuario
+        var nuevaContrasena = document.getElementById('nueva_contrasena').value;
+
+        // Realizar hash de la nueva contraseña utilizando SHA-256
+        var hashedPassword = CryptoJS.SHA256(nuevaContrasena).toString(CryptoJS.enc.Hex);
+
+        // Almacenar la contraseña hasheada en localStorage
+        localStorage.setItem('contrasena', hashedPassword);
+
+        // Redirigir a la página de inicio
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>
